@@ -2,6 +2,7 @@ import React from 'react';
 import Greeting from './features/example/pages/Welcome';
 import Counter from './features/example/pages/Counter';
 import CounterWithInput from './features/example/pages/CounterWithInput'
+import TodoList from './features/example/pages/TodoList';
 
 const App: React.FC = () => {
   return (
@@ -13,6 +14,10 @@ const App: React.FC = () => {
         <Greeting name="Edite"/>
 
         <CounterWithInput />
+
+        <h1>Todo List</h1>
+        <TodoList />
+        
       </header>
     </div>
   );
