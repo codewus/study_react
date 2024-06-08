@@ -1,13 +1,15 @@
 import React from 'react';
-import Welcome from './Welcome';
+import Greeting from './Welcome';
+import Counter from './Counter';
 
 const App: React.FC = () => {
   return (
     <div className="App">
       <header className="App-header">
-        <Welcome name="Sara" />
-        <Welcome name="Cahal" />
-        <Welcome name="Edite" />
+        <Counter />
+        <Greeting name="Sara" age={25}/>
+        <Greeting name="Cahal" age={30}/>
+        <Greeting name="Edite"/>
       </header>
     </div>
   );
