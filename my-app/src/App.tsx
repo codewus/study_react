@@ -1,6 +1,7 @@
 import React from 'react';
-import Greeting from './Welcome';
-import Counter from './Counter';
+import Greeting from './features/example/pages/Welcome';
+import Counter from './features/example/pages/Counter';
+import CounterWithInput from './features/example/pages/CounterWithInput'
 
 const App: React.FC = () => {
   return (
@@ -10,6 +11,8 @@ const App: React.FC = () => {
         <Greeting name="Sara" age={25}/>
         <Greeting name="Cahal" age={30}/>
         <Greeting name="Edite"/>
+
+        <CounterWithInput />
       </header>
     </div>
   );
