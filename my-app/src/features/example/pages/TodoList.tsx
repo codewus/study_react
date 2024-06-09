@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import TodoItem from './TodoItem';
 
 interface Todo {
+  id: number;
   text: string;
   completed: boolean;
 }
@@ -9,13 +10,17 @@ interface Todo {
 type Filter = 'All' | 'Completed' | 'Incomplete';
 
 const TodoList: React.FC = () => {
-  const [todos, setTodos] = useState<Todo[]>([]);
+  const [todos, setTodos] = useState<Todo[]>([
+    { id: 1, text: 'Learn React', completed: false },
+    { id: 2, text: 'Learn TypeScript', completed: false },
+    { id: 3, text: 'Build a Todo App', completed: false },
+  ]);
   const [newTodo, setNewTodo] = useState('');
   const [filter, setFilter] = useState<Filter>('All');
 
   const addTodo = () => {
     if (newTodo.trim()) {
-      setTodos([...todos, { text: newTodo, completed: false }]);
+      setTodos([...todos, { id: 99, text: newTodo, completed: false }]);
       setNewTodo('');
     }
   };
