@@ -4,11 +4,13 @@ import Home from './features/example/pages/Home';
 import About from './features/example/pages/About';
 import UserProfile from './features/example/pages/UserProfile';
 import LoginPage from './features/auth/pages/LoginPage';
+import { AuthProvider, useAuth } from './features/auth/context/AuthContext';
 import { User } from './features/example/services/UserService';
-import './styles/global.css'; // 전역 스타일을 import
+import LogoutButton from './features/auth/components/LogoutButton';
 
-const App: React.FC = () => {
+const AppContent: React.FC = () => {
   const [users, setUsers] = useState<User[]>([]);
+  const { user } = useAuth();
 
   useEffect(() => {
     const fetchedUsers: User[] = [
@@ -36,6 +38,11 @@ const App: React.FC = () => {
           <li>
             <Link to="/login">Login</Link>
           </li>
+          {user && (
+            <li>
+              <LogoutButton />
+            </li>
+          )}
         </ul>
       </nav>
       <Routes>
@@ -45,6 +52,14 @@ const App: React.FC = () => {
         <Route path="/login" element={<LoginPage />} />
       </Routes>
     </Router>
+  );
+};
+
+const App: React.FC = () => {
+  return (
+    <AuthProvider>
+      <AppContent />
+    </AuthProvider>
   );
 };
 
