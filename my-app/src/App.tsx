@@ -1,13 +1,12 @@
-// src/App.tsx
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import AdvancedGrid from './features/grid/components/AdvancedGrid';
+import ChartExample from './features/chart/components/ChartExample';
 
-const App: React.FC = () => {
+const App = () => {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<AdvancedGrid />} />
+        <Route path="/" element={<ChartExample />} />
       </Routes>
     </Router>
   );
