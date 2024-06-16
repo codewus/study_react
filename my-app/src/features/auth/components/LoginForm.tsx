@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import './LoginForm.css';
 
@@ -7,6 +8,7 @@ const LoginForm: React.FC = () => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const { login } = useAuth();
+  const navigate = useNavigate();
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
@@ -19,6 +21,7 @@ const LoginForm: React.FC = () => {
     try {
       await login(email, password);
       console.log('User logged in successfully');
+      navigate('/'); // 로그인 성공 후 홈 화면으로 리디렉션
     } catch (error) {
       setError('Failed to log in. Please check your credentials.');
       console.error('Login error:', error);
@@ -45,8 +48,8 @@ const LoginForm: React.FC = () => {
           onChange={(e) => setPassword(e.target.value)}
         />
       </div>
-      {error && <p style={{ color: 'red' }}>{error}</p>}
       <button type="submit">Login</button>
+      {error && <p style={{ color: 'red' }}>{error}</p>}
     </form>
   );
 };

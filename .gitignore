@@ -34,3 +34,4 @@ logs
 **/*.back.*
 
 *.code-workspace
+my-app/.env
